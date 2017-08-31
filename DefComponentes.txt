@@ -1,0 +1,19 @@
+Componentes:
+Header
+	Logo
+	Buscador
+	Login
+Principal
+	Recomendadas
+	Barra-Filtros
+		Filtro (por genero / por año / ordenado)
+	Catalogo-Peliculas
+		Cards-Peliculas
+Detalle-Pelicula
+	Cabecera (titulo/año/duracion/categoria)
+	Puntuacion
+	Descripcion (imagen/sinopsis)
+	Creditos(director/escritor)
+		Actores
+	Review
+Footer
