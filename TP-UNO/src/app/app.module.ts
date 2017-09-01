@@ -7,19 +7,22 @@ import { PrincipalComponent } from './principal/principal.component';
 import { DetallesPeliculaComponent } from './detalles-pelicula/detalles-pelicula.component';
 import { BarraFiltrosComponent } from './barra-filtros/barra-filtros.component';
 import { AlertModule } from 'ngx-bootstrap';
+import { CatalogoPeliculasComponent } from './catalogo-peliculas/catalogo-peliculas.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     AlertModule.forRoot(),
   ],
+
   declarations: [               
     AppComponent,
     FooterComponent,
     HeaderComponent,
     PrincipalComponent,
     DetallesPeliculaComponent,
-    BarraFiltrosComponent
+    BarraFiltrosComponent,
+    CatalogoPeliculasComponent
   ],
   bootstrap: [AppComponent]
 })
