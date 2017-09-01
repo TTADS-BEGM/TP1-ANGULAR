@@ -1,0 +1,23 @@
+.barra-filtros {
+    background-color: #ffbc9f;
+}
+
+.filtros {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.filtros span {
+    font-size: 25px;
+}
+
+.filtros button {
+    margin-top: 10px;
+    font-size: 18px;
+    color: black;
+}
+
+.ancho {
+    width: 100px;
+}
