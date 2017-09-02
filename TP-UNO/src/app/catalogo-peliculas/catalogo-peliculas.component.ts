@@ -21,5 +21,6 @@ export class CatalogoPeliculasComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPeliculas();
+    console.log(this.peliculas);
   }
 }

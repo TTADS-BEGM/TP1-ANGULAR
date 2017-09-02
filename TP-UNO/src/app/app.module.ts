@@ -8,10 +8,12 @@ import { DetallesPeliculaComponent } from './detalles-pelicula/detalles-pelicula
 import { BarraFiltrosComponent } from './barra-filtros/barra-filtros.component';
 import { AlertModule } from 'ngx-bootstrap';
 import { CatalogoPeliculasComponent } from './catalogo-peliculas/catalogo-peliculas.component';
+import { HttpModule }    from '@angular/http';
 
 @NgModule({
   imports: [
     BrowserModule,
+    HttpModule,
     AlertModule.forRoot(),
   ],
 
