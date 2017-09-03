@@ -6,12 +6,21 @@ import { HeaderComponent } from './header/header.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { DetallesPeliculaComponent } from './detalles-pelicula/detalles-pelicula.component';
 import { BarraFiltrosComponent } from './barra-filtros/barra-filtros.component';
-import { AlertModule } from 'ngx-bootstrap';
+import { LogoComponent } from './logo/logo.component';
+import { LoginComponent } from './login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { JsonpModule } from '@angular/http';
+import { NgbdTypeaheadHttp } from './search/typeahead-http';
+
 
 @NgModule({
   imports: [
     BrowserModule,
-    AlertModule.forRoot(),
+    JsonpModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule.forRoot(),
   ],
   declarations: [               
     AppComponent,
@@ -19,7 +28,10 @@ import { AlertModule } from 'ngx-bootstrap';
     HeaderComponent,
     PrincipalComponent,
     DetallesPeliculaComponent,
-    BarraFiltrosComponent
+    BarraFiltrosComponent,
+    LogoComponent,
+    LoginComponent,
+    NgbdTypeaheadHttp,
   ],
   bootstrap: [AppComponent]
 })
