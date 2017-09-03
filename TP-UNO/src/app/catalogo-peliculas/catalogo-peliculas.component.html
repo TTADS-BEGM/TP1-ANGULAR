@@ -1,4 +1,6 @@
-<h2>Peliculas</h2>
+<hr>
+<h2 class="title">Peliculas</h2>
+<hr>
 <div class="container">
 	<div class="row">
 		<div class="thumbnails">
@@ -6,9 +8,16 @@
               <div class="thumbnail">
                 <img class="poster_path" src="https://image.tmdb.org/t/p/w640{{pelicula.poster_path}}" alt="ALT NAME">
                 <div class="caption">
-                  <h3>{{pelicula.title}}</h3>
+                  <p class="flex">
+                      <span class="movie-title">{{pelicula.title}} </span>
+                      <span><fa [name]="'star'"></fa> {{pelicula.vote_average}}</span>
+                  </p>
+                  <p class="flex">
+                    <span><fa [name]="'calendar'"></fa> {{pelicula.release_date}}</span>
+                    <span><fa [name]="'child'"></fa>{{pelicula.adult}}</span>
+                  </p>
                   <p  class="overview">{{pelicula.overview}}</p>
-                  <p align="center"><a href="http://bootsnipp.com/" class="btn btn-primary btn-block">Mas Información</a></p>
+                  <p align="center"><a href="http://bootsnipp.com/" class="btn btn-primary btn-block btn-edited">Mas Información</a></p>
                 </div>
               </div>
             </div>
