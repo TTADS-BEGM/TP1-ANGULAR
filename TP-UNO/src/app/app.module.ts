@@ -9,6 +9,12 @@ import { BarraFiltrosComponent } from './barra-filtros/barra-filtros.component';
 import { CatalogoPeliculasComponent } from './catalogo-peliculas/catalogo-peliculas.component';
 import { HttpModule }    from '@angular/http';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
+import { LogoComponent } from './logo/logo.component';
+import { LoginComponent } from './login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { JsonpModule } from '@angular/http';
+import { NgbdTypeaheadHttp } from './search/typeahead-http';
 
 
 @NgModule({
@@ -16,6 +22,10 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
     BrowserModule,
     HttpModule,
     Angular2FontawesomeModule,
+    JsonpModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule.forRoot(),
   ],
 
   declarations: [               
@@ -25,7 +35,10 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
     PrincipalComponent,
     DetallesPeliculaComponent,
     BarraFiltrosComponent,
-    CatalogoPeliculasComponent
+    CatalogoPeliculasComponent,
+    LogoComponent,
+    LoginComponent,
+    NgbdTypeaheadHttp,
   ],
   bootstrap: [AppComponent]
 })
