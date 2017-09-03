@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Pelicula } from '../pelicula';
 import { PeliculasService } from '../peliculas.service';
+
 
 @Component({
   selector: 'app-catalogo-peliculas',
@@ -10,17 +10,32 @@ import { PeliculasService } from '../peliculas.service';
   providers:[PeliculasService]
 })
 export class CatalogoPeliculasComponent implements OnInit {
+  // Local properties
+  peliculas: Pelicula[];
 
-  peliculas: Pelicula [];
+  // Constructor with injected service
+  constructor(private peliculaService: PeliculasService) {}
 
-  constructor(private peliService: PeliculasService) { }
-
-  getPeliculas(): void {
-    this.peliService.getPelis().then(peliculas => this.peliculas = peliculas);
+  ngOnInit() {
+          // Load comments
+          this.loadPeliculas()
   }
 
-  ngOnInit(): void {
-    this.getPeliculas();
-    console.log(this.peliculas);
+  loadPeliculas() {
+      // Get all comments
+       this.peliculaService.getPelis()
+                         .subscribe(
+                             peliculas => this.peliculas = peliculas, //Bind to view
+                              err => {
+                                  // Log errors if any
+                                  console.log(err);
+                              });
   }
+
+//  ngOnChanges(changes:any) {
+      // Listen to the 'list'emitted event so as populate the model
+      // with the event payload
+//     EmitterService.get(this.listId).subscribe((peliculas:Pelicula[]) => { this.loadPeliculas()});
+//  } 
+
 }

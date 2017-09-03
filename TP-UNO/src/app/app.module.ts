@@ -6,7 +6,6 @@ import { HeaderComponent } from './header/header.component';
 import { PrincipalComponent } from './principal/principal.component';
 import { DetallesPeliculaComponent } from './detalles-pelicula/detalles-pelicula.component';
 import { BarraFiltrosComponent } from './barra-filtros/barra-filtros.component';
-import { AlertModule } from 'ngx-bootstrap';
 import { CatalogoPeliculasComponent } from './catalogo-peliculas/catalogo-peliculas.component';
 import { HttpModule }    from '@angular/http';
 
@@ -14,7 +13,6 @@ import { HttpModule }    from '@angular/http';
   imports: [
     BrowserModule,
     HttpModule,
-    AlertModule.forRoot(),
   ],
 
   declarations: [               

@@ -1,0 +1,11 @@
+.overview {
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.poster_path {
+    height: 400px;
+    border: 3px solid black;
+}

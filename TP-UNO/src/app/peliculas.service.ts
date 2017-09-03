@@ -1,24 +1,30 @@
-import { Injectable } from '@angular/core';
-
+/* * * ./app/comments/services/comment.service.ts * * */
+// Imports
+import { Injectable }     from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Pelicula } from './pelicula';
+import {Observable} from 'rxjs/Rx';
+
+// Import RxJs required methods
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class PeliculasService {
-  getPelis(): Promise<Pelicula[]> {
-    return Promise.resolve(PELICULAS);
-  }
 
+     // Resolve HTTP using the constructor
+     constructor (private http: Http) {}
+
+     // private instance variable to hold base url
+     private peliculasUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=b57c97dcd5c10ae95c73f12d1b5c3373&language=en-US&page=1'; 
+
+     // Fetch all existing movies
+     getPelis() : Observable<Pelicula[]> {
+               // ...using get request
+               return this.http.get(this.peliculasUrl)
+                              // ...and calling .json() on the response to return data
+                               .map((res:Response) => res.json()) 
+                               //...errors if any
+                               .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+           }      
 }
-
-export const PELICULAS: Pelicula[] = [
-  { id: 11, name: 'El secreto de sus ojos', url: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bRl6C6FwzTndk0MBGZZ68nRFlw3.jpg' },
-  { id: 12, name: 'Narcos', url: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bRl6C6FwzTndk0MBGZZ68nRFlw3.jpg' },
-  { id: 13, name: 'Harry Potter 4', url: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bRl6C6FwzTndk0MBGZZ68nRFlw3.jpg' },
-  { id: 14, name: 'Ex Machina', url: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bRl6C6FwzTndk0MBGZZ68nRFlw3.jpg' },
-  { id: 15, name: 'Mad Max', url: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bRl6C6FwzTndk0MBGZZ68nRFlw3.jpg' },
-  { id: 16, name: 'Deadpool', url: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bRl6C6FwzTndk0MBGZZ68nRFlw3.jpg' },
-  { id: 17, name: 'Contratiempo', url: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bRl6C6FwzTndk0MBGZZ68nRFlw3.jpg' },
-  { id: 18, name: 'El planeta de los simios', url: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bRl6C6FwzTndk0MBGZZ68nRFlw3.jpg' },
-  { id: 19, name: 'Newells', url: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bRl6C6FwzTndk0MBGZZ68nRFlw3.jpg' },
-  { id: 20, name: 'Death Note', url: 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bRl6C6FwzTndk0MBGZZ68nRFlw3.jpg' }
-];
