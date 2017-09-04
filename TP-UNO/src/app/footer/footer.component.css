@@ -1,9 +1,9 @@
 p {
-    color: red;
+    color: black;
     text-align: center;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .fondo-footer {
-    background-color: lightgray;
+    background-color: #ffbc9f;
 }
