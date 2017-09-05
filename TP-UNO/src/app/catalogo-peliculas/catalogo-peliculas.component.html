@@ -3,7 +3,7 @@
 <hr>
 <div class="container">
 	<div class="row">
-		<div class="thumbnails">
+		<div class="thumbnails" *ngIf="peliculas != undefined; else elseBlock">
             <div class="col-md-4" *ngFor= "let pelicula of peliculas.results">
               <div class="thumbnail">
                 <img class="poster_path" src="https://image.tmdb.org/t/p/w640{{pelicula.poster_path}}" alt="ALT NAME">
@@ -22,6 +22,10 @@
               </div>
             </div>
         </div>
+        <ng-template #elseBlock>
+          <div class="col-md-12">
+            <h3 class="loading-title">Cargando Peliculas...</h3>
+          </div>
+        </ng-template>
 	</div>
 </div>
-

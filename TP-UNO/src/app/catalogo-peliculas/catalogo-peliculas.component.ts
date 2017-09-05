@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pelicula } from '../pelicula';
 import { PeliculasService } from '../peliculas.service';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { PeliculasService } from '../peliculas.service';
 export class CatalogoPeliculasComponent implements OnInit {
   // Local properties
   peliculas: Pelicula[];
+  test = true;
 
   // Constructor with injected service
   constructor(private peliculaService: PeliculasService) {}
