@@ -1,3 +1,4 @@
 # TP1-ANGULAR
 
-HOLAAAA
+Slack:
+https://gembttads.slack.com
