@@ -15,8 +15,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JsonpModule } from '@angular/http';
 import { NgbdTypeaheadHttp } from './search/typeahead-http';
-
-
+import {MdSelectModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
   imports: [
     BrowserModule,
@@ -25,6 +25,8 @@ import { NgbdTypeaheadHttp } from './search/typeahead-http';
     JsonpModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MdSelectModule,
     NgbModule.forRoot(),
   ],
 

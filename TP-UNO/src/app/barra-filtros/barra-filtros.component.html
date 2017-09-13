@@ -1,66 +1,32 @@
 <div class="container-fluid barra-filtros">
   <div class="row">
     <hr>
-    <div class="col-md-4 row filtros">
-      <div class="col-md-12">
-        <span class="glyphicon glyphicon-calendar" aria-hidden="true">
-        </span>
-      </div>
-      <div class="col-md-12">
-        <div class="btn-group">
-          <button type="button" class="btn btn-warning ancho edited-button">Año</button>
-          <button type="button" class="btn btn-warning dropdown-toggle edited-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="caret"></span>
-            <span class="sr-only"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-          </ul>
-        </div>
-      </div>
+
+    <div class="col-md-4">
+      <md-select class="btn btn-primary" placeholder="Año">
+        <md-option *ngFor="let year of years" [value]="year.idyear">
+          {{ year.idyear }}
+        </md-option>
+      </md-select>
     </div>
-    <div class="col-md-4 row filtros">
-      <div class="col-md-12">
-        <span class="glyphicon glyphicon-film" aria-hidden="true">
-        </span>
-      </div>
-      <div class="col-md-12">
-        <div class="btn-group">
-          <button type="button" class="btn btn-warning ancho">Género</button>
-          <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="caret"></span>
-            <span class="sr-only"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-          </ul>
-        </div>
-      </div>
+
+    <div class="col-md-4">
+      <md-select class="btn btn-primary" placeholder="Genero">
+        <md-option *ngFor="let genre of genres" [value]="genre.idGenre">
+          {{ genre.descGenre }}
+        </md-option>
+      </md-select>
     </div>
-    <div class="col-md-4 row filtros">
-      <div class="col-md-12">
-        <span class="glyphicon glyphicon-sort-by-attributes-alt" aria-hidden="true">
-        </span>
-      </div>
-      <div class="col-md-12">
-        <div class="btn-group">
-          <button type="button" class="btn btn-warning ancho">Ordenar</button>
-          <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="caret"></span>
-            <span class="sr-only"></span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-          </ul>
-        </div>
-      </div>
+
+    <div class="col-md-4">
+      <md-select class="btn btn-primary" placeholder="Ordenar por">
+        <md-option *ngFor="let orderby of orderBys" [value]="orderby">
+          {{ orderby.idOrder }}
+        </md-option>
+      </md-select>
     </div>
+
+
   </div>
 
 
