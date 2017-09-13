@@ -3,27 +3,47 @@
     <hr>
 
     <div class="col-md-4">
-      <md-select class="btn btn-primary" placeholder="Año">
+        <div class="row icono">
+      <span class="glyphicon glyphicon-dashboard"></span>
+      </div>
+        <div class="row">
+      <md-select class="btn btn-primary filtros" placeholder="Año">
         <md-option *ngFor="let year of years" [value]="year.idyear">
           {{ year.idyear }}
         </md-option>
       </md-select>
+      </div>
     </div>
 
     <div class="col-md-4">
-      <md-select class="btn btn-primary" placeholder="Genero">
+      <div class="row icono">
+      <span class="glyphicon glyphicon-adjust"></span>
+      </div>
+          <div class="row icono">
+
+      <md-select class="btn btn-primary filtros " placeholder="Genero">
         <md-option *ngFor="let genre of genres" [value]="genre.idGenre">
           {{ genre.descGenre }}
         </md-option>
       </md-select>
+            </div>
+
     </div>
 
     <div class="col-md-4">
-      <md-select class="btn btn-primary" placeholder="Ordenar por">
+            <div class="row icono">
+
+      <span class="glyphicon glyphicon-sort-by-attributes"></span>
+      </div>
+                <div class="row icono">
+
+      <md-select class="btn btn-primary filtros" placeholder="Ordenar por">
         <md-option *ngFor="let orderby of orderBys" [value]="orderby">
           {{ orderby.idOrder }}
         </md-option>
       </md-select>
+            </div>
+
     </div>
 
 
