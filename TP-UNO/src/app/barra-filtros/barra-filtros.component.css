@@ -10,24 +10,29 @@
 }
 
 .filtros {
-    text-align: center;
     margin-top: 25px;
     margin-bottom: 25px;
+    margin-left: 33%;
 }
 
 .filtros span {
     font-size: 25px;
 }
 
-.filtros button {
+.filtros[_ngcontent-c2] {
+        background-color: #ff7212;
+        border-color: orange;
+}
+
+
+.icono span {
+    text-align: justify;
     margin-top: 10px;
-    font-size: 18px;
+    margin-left: 47%;
+    font-size: 28px;
     color: black;
 }
 
-.ancho {
-    width: 100px;
-}
 .edited-button {
     background-color: #ff7212;
     border: 0.5px solid orange;
