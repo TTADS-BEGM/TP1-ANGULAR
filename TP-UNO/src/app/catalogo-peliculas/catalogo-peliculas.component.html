@@ -9,7 +9,7 @@
                 <img class="poster_path" src="https://image.tmdb.org/t/p/w640{{pelicula.poster_path}}" alt="ALT NAME">
                 <div class="caption">
                   <p class="flex">
-                      <span class="movie-title">{{pelicula.title}} </span>
+                      <span class="movie-title" class="title-movie">{{pelicula.title}} </span>
                       <span><fa [name]="'star'"></fa> {{pelicula.vote_average}}</span>
                   </p>
                   <p class="flex">
@@ -17,7 +17,7 @@
                     <span><fa [name]="'child'"></fa>{{pelicula.adult}}</span>
                   </p>
                   <p  class="overview">{{pelicula.overview}}</p>
-                  <p align="center"><a href="http://bootsnipp.com/" class="btn btn-primary btn-block btn-edited">Mas Información</a></p>
+                  <p align="center"><a routerLink="/details/{{pelicula.id}}" class="btn btn-primary btn-block btn-edited">Mas Información</a></p>
                 </div>
               </div>
             </div>

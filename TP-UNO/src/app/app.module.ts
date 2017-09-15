@@ -15,8 +15,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JsonpModule } from '@angular/http';
 import { NgbdTypeaheadHttp } from './search/typeahead-http';
-import {MdSelectModule} from '@angular/material';
+import {MdSelectModule, MdCardModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { RouterModule }   from '@angular/router';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -27,7 +29,24 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MdSelectModule,
+    MdCardModule,
     NgbModule.forRoot(),
+    RouterModule.forRoot([
+      {
+        path: 'details/:id',
+        component: DetallesPeliculaComponent
+      },
+      {
+        path: '',
+        redirectTo: '/principal',
+        pathMatch: 'full'
+      },
+      {
+        path: 'principal',
+        component: PrincipalComponent
+      }
+    ])
+    
   ],
 
   declarations: [               
@@ -40,7 +59,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     CatalogoPeliculasComponent,
     LogoComponent,
     LoginComponent,
-    NgbdTypeaheadHttp,
+    NgbdTypeaheadHttp
   ],
   bootstrap: [AppComponent]
 })
