@@ -3,7 +3,6 @@ import { Pelicula } from '../pelicula';
 import { PeliculasService } from '../peliculas.service';
 import { BrowserModule } from '@angular/platform-browser';
 
-
 @Component({
   selector: 'app-catalogo-peliculas',
   templateUrl: './catalogo-peliculas.component.html',

@@ -1,3 +1,28 @@
-<p>
-  detalles-pelicula works!
-</p>
+<div class="container">
+    <div class="row">
+      <div *ngIf="pelicula != undefined; else elseBlock">
+          <div class="moviecard">
+      <!--         <div class="movie-poster play-trailer"></div> -->
+              <div id="movie-content">
+                <div class="movie-ratings"><span class="star">★</span><span class="score">7.7</span><span class="score-out-of">/ 10 (IMDB)</span></div>
+                <div class="movie-title"><a href="https://image.tmdb.org/t/p/w640{{pelicula.poster_path}}" target="_blank">{{pelicula.title}}</a><span class="movie-year"><fa [name]="'calendar'"></fa> {{pelicula.release_date}}</span></div>
+                <div class="movie-details"><span class="movie-rating">R</span><span class="movie-duration">{{pelicula.runtime}} mins</span><span class="movie-genre">{{pelicula.genre}}</span></div>
+                <div class="movie-castcrew"><span class="title">Director</span><span class="name">Denis Villeneuve</span></div>
+                <div class="movie-castcrew"><span class="title">Writer</span><span class="name">Taylor Sheridan</span></div>
+                <div class="movie-castcrew"><span class="title">Cast</span><span class="name">Emily Blunt, Josh Brolin, Benicio Del Toro</span></div>
+                <div class="movie-synopsis">{{pelicula.overview}}</div>
+              </div>
+<!--               <div class="movie-trailer"><a class="back-btn">back</a>
+                <div id="youvideo">
+                  <iframe src="https://www.youtube.com/embed/7XLQ1bkSLDo?enablejsapi=1" frameborder="0" allowfullscreen="allowfullscreen" allowScriptAccess="always"></iframe>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <ng-template #elseBlock>
+            <div class="col-md-12">
+              <h3 class="loading-title">Cargando Pelicula...</h3>
+            </div>
+          </ng-template>
+    </div>
+  </div>
