@@ -15,9 +15,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JsonpModule } from '@angular/http';
 import { NgbdTypeaheadHttp } from './search/typeahead-http';
-import {MdSelectModule, MdCardModule} from '@angular/material';
+import {MdListModule, MdSelectModule, MdCardModule, MdInputModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RouterModule }   from '@angular/router';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,8 @@ import { RouterModule }   from '@angular/router';
     BrowserAnimationsModule,
     MdSelectModule,
     MdCardModule,
+    MdInputModule,
+    MdListModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
       {
@@ -59,7 +62,8 @@ import { RouterModule }   from '@angular/router';
     CatalogoPeliculasComponent,
     LogoComponent,
     LoginComponent,
-    NgbdTypeaheadHttp
+    NgbdTypeaheadHttp,
+    SearchbarComponent
   ],
   bootstrap: [AppComponent]
 })

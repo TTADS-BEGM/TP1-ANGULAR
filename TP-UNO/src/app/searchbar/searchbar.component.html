@@ -1,0 +1,14 @@
+<div class="cont">
+    <md-form-field class="example">
+        <input mdInput (input)="onSearchChange($event.target.value)" (blur)="onBlur()" placeholder="Buscar película">
+    </md-form-field>
+</div>
+<div *ngIf="items" class="lista">      
+        <div *ngFor="let item of items; let i=index">
+            <div *ngIf="i<5">
+                <img class='mini' src='https://image.tmdb.org/t/p/w92{{item.poster_path}}' alt="">
+                {{item.title}}
+                <hr>
+            </div>
+        </div>
+</div>
