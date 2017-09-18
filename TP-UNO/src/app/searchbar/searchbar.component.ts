@@ -14,7 +14,6 @@ import 'rxjs/add/operator/catch';
 })
 export class SearchbarComponent {
   items: any;
-  firstitems:any;
   private apiUrl = 'https://api.themoviedb.org/3/search/movie?api_key=b57c97dcd5c10ae95c73f12d1b5c3373&language=en-US&query={searchterm}&page=1&include_adult=true';
   
   constructor(private http:Http) { }
@@ -30,7 +29,9 @@ export class SearchbarComponent {
      
   }
   onBlur(){
-    this.items=null;
+    setTimeout(()=>{   //Tiene timeout para que primero haga el routing al detalle, sino no anda
+      this.items = null;
+    },100);
   }
 
   

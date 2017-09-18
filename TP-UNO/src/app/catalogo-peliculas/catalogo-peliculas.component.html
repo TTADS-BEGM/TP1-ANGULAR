@@ -6,7 +6,9 @@
 		<div class="thumbnails" *ngIf="peliculas != undefined; else elseBlock">
             <div class="col-md-4" *ngFor= "let pelicula of peliculas.results">
               <div class="thumbnail">
-                <img class="poster_path" src="https://image.tmdb.org/t/p/w640{{pelicula.poster_path}}" alt="ALT NAME">
+                <a routerLink="/details/{{pelicula.id}}">
+                  <img class="poster_path" src="https://image.tmdb.org/t/p/w640{{pelicula.poster_path}}" alt="ALT NAME">
+                </a>
                 <div class="caption">
                   <p class="flex">
                       <span class="movie-title" class="title-movie">{{pelicula.title}} </span>
