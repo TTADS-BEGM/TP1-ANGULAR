@@ -14,7 +14,6 @@ import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JsonpModule } from '@angular/http';
-import { NgbdTypeaheadHttp } from './search/typeahead-http';
 import {MdListModule, MdSelectModule, MdCardModule, MdInputModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RouterModule }   from '@angular/router';
@@ -62,7 +61,6 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     CatalogoPeliculasComponent,
     LogoComponent,
     LoginComponent,
-    NgbdTypeaheadHttp,
     SearchbarComponent
   ],
   bootstrap: [AppComponent]

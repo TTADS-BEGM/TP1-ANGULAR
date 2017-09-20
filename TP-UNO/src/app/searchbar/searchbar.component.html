@@ -8,7 +8,7 @@
             <div *ngIf="i<5">
                 <img class='mini' src='https://image.tmdb.org/t/p/w92{{item.poster_path}}' alt="">
                 <a routerLink="/details/{{item.id}}">
-                    {{item.title}}
+                    {{item.title}} ({{item.release_date | date:"yyyy"}})
                 </a>
                 <hr>
             </div>

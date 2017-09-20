@@ -5,7 +5,7 @@
             <li>
                 <div class="row">
                     <div class="col-md-12">
-                        <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                        <div  id="login-nav">
                         <div class="form-group">
                             <label class="sr-only" for="usuario">Usuario</label>
                             <input #nameInput type="text" class="form-control" id="usuario" placeholder="Usuario" required>
@@ -22,7 +22,7 @@
                         <div class="form-group">
                                 <button class="btn" (click)='clicked(nameInput.value)'>Sign in</button>
                         </div>
-                        </form>
+                    </div>
                     </div>
                 </div>
             </li>
