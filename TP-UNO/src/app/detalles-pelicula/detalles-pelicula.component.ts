@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
+import { PeliculasService } from '../peliculas.service';
 
 @Component({
   selector: 'app-detalles-pelicula',
@@ -10,15 +11,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetallesPeliculaComponent implements OnInit {
   pelicula: any;
-  private peliculaUrl = 'https://api.themoviedb.org/3/movie/{movie_id}?api_key=b57c97dcd5c10ae95c73f12d1b5c3373&language=en-US';
+  
   
   constructor (private http: Http,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute,
+    private peliService : PeliculasService) {}
 
   ngOnInit() {
 
     this.route.params.subscribe(params => {
-      this.getPeli(params['id'])
+      this.peliService.getPeli(params['id'])
       .subscribe(
           pelicula => this.pelicula = pelicula, //Bind to view
            err => {
@@ -28,13 +30,6 @@ export class DetallesPeliculaComponent implements OnInit {
     });
 
   }
-      getPeli(id: any) : Observable<any> {
-        // ...using get request
-        return this.http.get(this.peliculaUrl.replace('{movie_id}', id))
-                        // ...and calling .json() on the response to return data
-                        .map((res:Response) => res.json()) 
-                        //...errors if any
-                        .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
-    } 
+      
 
 }

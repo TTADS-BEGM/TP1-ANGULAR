@@ -7,17 +7,17 @@ import { PrincipalComponent } from './principal/principal.component';
 import { DetallesPeliculaComponent } from './detalles-pelicula/detalles-pelicula.component';
 import { BarraFiltrosComponent } from './barra-filtros/barra-filtros.component';
 import { CatalogoPeliculasComponent } from './catalogo-peliculas/catalogo-peliculas.component';
-import { HttpModule }    from '@angular/http';
+import { HttpModule, JsonpModule }    from '@angular/http';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { LogoComponent } from './logo/logo.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { JsonpModule } from '@angular/http';
 import {MdListModule, MdSelectModule, MdCardModule, MdInputModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RouterModule }   from '@angular/router';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { PeliculasService } from "./peliculas.service";
 
 @NgModule({
   imports: [
@@ -63,6 +63,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     LoginComponent,
     SearchbarComponent
   ],
+  providers: [ PeliculasService ],
   bootstrap: [AppComponent]
 })
 
