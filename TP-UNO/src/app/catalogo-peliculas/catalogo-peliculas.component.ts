@@ -6,8 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 @Component({
   selector: 'app-catalogo-peliculas',
   templateUrl: './catalogo-peliculas.component.html',
-  styleUrls: ['./catalogo-peliculas.component.css'],
-  providers:[PeliculasService]
+  styleUrls: ['./catalogo-peliculas.component.css']
 })
 export class CatalogoPeliculasComponent implements OnInit {
   // Local properties

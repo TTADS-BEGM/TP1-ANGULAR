@@ -29,9 +29,9 @@ export class SearchbarComponent {
      
   }
   onBlur(){
-    setTimeout(()=>{   //Tiene timeout para que primero haga el routing al detalle, sino no anda
+    setTimeout(()=>{   //Tiene timeout para que primero haga el routing al detalle, sino se vacian los items antes
       this.items = null;
-    },100);
+    },300);
   }
 
   
