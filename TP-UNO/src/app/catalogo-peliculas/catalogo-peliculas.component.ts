@@ -11,7 +11,7 @@ import { BrowserModule } from '@angular/platform-browser';
 export class CatalogoPeliculasComponent implements OnInit {
   // Local properties
   peliculas: Pelicula[];
-  test = true;
+  page = 1;
 
   // Constructor with injected service
   constructor(private peliculaService: PeliculasService) {}
@@ -23,13 +23,29 @@ export class CatalogoPeliculasComponent implements OnInit {
 
   loadPeliculas() {
       // Get all comments
-       this.peliculaService.getPelis()
+       this.peliculaService.getPelis(this.page)
                          .subscribe(
                              peliculas => this.peliculas = peliculas, //Bind to view
                               err => {
                                   // Log errors if any
                                   console.log(err);
                               });
+  }
+  avPage($event){
+    this.page++;
+    var target = $event.target;    
+    target.blur();
+    this.loadPeliculas();
+    window.scrollTo(0,300);
+  }
+  rePage($event){
+    if(this.page>1){
+      this.page--;
+      var target = $event.target;    
+      target.blur();
+      this.loadPeliculas();
+      window.scrollTo(0,300);
+    }    
   }
 
 //  ngOnChanges(changes:any) {
