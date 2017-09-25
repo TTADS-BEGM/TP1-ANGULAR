@@ -1,49 +1,44 @@
 <div class="container-fluid barra-filtros">
-  <div class="row">
-    <hr>
-
-    <div class="col-md-4">
-        <div class="row icono">
-      <span class="glyphicon glyphicon-calendar"></span>
-      </div>
-        <div class="row">
-      <md-select class="btn btn-primary filtros" placeholder="Año">
+  <div class="row top">
+    <div class="col-md-3 text-center">
+        
+      <span class="glyphicon gly glyphicon-calendar"></span>           
+      <md-select [(ngModel)]="selectedYear" class="btn btn-primary " placeholder="Año">
         <md-option *ngFor="let year of years" [value]="year.idyear">
           {{ year.idyear }}
         </md-option>
       </md-select>
-      </div>
+     
     </div>
 
-    <div class="col-md-4">
-      <div class="row icono">
-      <span class="glyphicon glyphicon-facetime-video"></span>
-      </div>
-          <div class="row icono">
-
-      <md-select class="btn btn-primary filtros " placeholder="Genero">
+    <div class="col-md-3 text-center">
+      
+      <span class="glyphicon gly glyphicon-facetime-video"></span>
+      
+       <md-select [(ngModel)]="selectedGenre" class="btn btn-primary  " placeholder="Genero">
         <md-option *ngFor="let genre of genres" [value]="genre.idGenre">
           {{ genre.descGenre }}
         </md-option>
       </md-select>
-            </div>
-
+           
     </div>
+        
+    <div class="col-md-3 text-center">
+            
 
-    <div class="col-md-4">
-            <div class="row icono">
-
-      <span class="glyphicon glyphicon-sort-by-attributes"></span>
-      </div>
-                <div class="row icono">
-
-      <md-select class="btn btn-primary filtros" placeholder="Ordenar por">
-        <md-option *ngFor="let orderby of orderBys" [value]="orderby">
-          {{ orderby.idOrder }}
+      <span class="glyphicon gly glyphicon-sort-by-attributes"></span>
+ 
+      <md-select [(ngModel)]="selectedOrder" class="btn btn-primary " placeholder="Ordenar por">
+        <md-option *ngFor="let orderby of orderBys" [value]="orderby.idOrder">
+          {{ orderby.descOrder }}
         </md-option>
       </md-select>
-            </div>
+            
 
+    </div>
+    <div class="col-md-3 text-center">
+
+      <button (click)="clicked()" class="btn btn-lg btn-warning hvr-pulse">Buscar</button>
     </div>
 
 
