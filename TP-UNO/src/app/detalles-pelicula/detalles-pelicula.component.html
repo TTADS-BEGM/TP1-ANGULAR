@@ -5,7 +5,7 @@
               <div id="movie-content">
                 <div class="movie-ratings"><span class="star">★</span><span class="score">{{pelicula.vote_average}}</span><span class="score-out-of">/ 10 (IMdb)</span></div>
                 <div class="movie-title">{{pelicula.title}}<span class="movie-year"><fa [name]="'calendar'"></fa> {{pelicula.release_date}}</span></div>
-                <div class="movie-details"><span class="glyphicon glyphicon-time"></span><span class="movie-duration">{{pelicula.runtime}} mins</span><span class="movie-genre">{{pelicula.genre}}</span></div>
+                <div class="movie-details"><span class="glyphicon glyphicon-time"></span><span class="movie-duration">{{pelicula.runtime}} mins</span><span *ngFor="let genre of pelicula.genres" class="movie-genre">{{genre.name}}</span></div>
 								<div class="row">
 									<div class="col-md-4">
 										<img src="https://image.tmdb.org/t/p/w342{{pelicula.poster_path}}" alt="">
@@ -13,21 +13,24 @@
 									<div class="col-md-6 col-md-offset-1">
 										<div class="row">
 
-											<div class="movie-synopsis">{{pelicula.overview}}</div>										
-											<div class="movie-castcrew"><span class="title">Director:</span><span class="name">Denis Villeneuve</span></div>
-											<div class="movie-castcrew"><span class="title">Writer:</span><span class="name">Taylor Sheridan</span></div>
-											<div class="movie-castcrew"><span class="title">Cast:</span><span class="name">Emily Blunt, Josh Brolin, Benicio Del Toro</span></div>										
+											<div class="movie-synopsis">
+												<h2>Sinopsis</h2>
+												<p>{{pelicula.overview}}</p>
+											</div>
+											<div class="movie-castcrew"><span class="title">Director: </span><span *ngFor="let crew of credits.crew"><span *ngIf="crew.job == 'Director'">{{crew.name}}</span></span></div>
+											<div class="movie-castcrew"><span class="title">Escritor: </span><span *ngFor="let crew of credits.crew"><span *ngIf="crew.job == 'Novel'">{{crew.name}}</span></span></div>
+											<div class="movie-castcrew"><span class="title">Elenco:</span><span class="name">{{credits.cast[0].name}}, {{credits.cast[1].name}}, {{credits.cast[2].name}}</span></div>										
 										</div>
 										<div class="row">
 												<div class="col-md-offset-1 actors">						
 													<div class="col-md-4">
-														<img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjAxODcyNzU2MV5BMl5BanBnXkFtZTcwNzA0ODMxOQ@@._V1_UX214_CR0,0,214,317_AL_.jpg" class="img-circle img-responsive" alt="" width="100" > 
+														<img src="https://image.tmdb.org/t/p/w342{{credits.cast[0].profile_path}}" class="img-circle img-responsive" alt="" width="100" > 
 													</div>	
 													<div class="col-md-4">
-															<img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTY5NTEzNDgzOF5BMl5BanBnXkFtZTcwNTMwNjk4Nw@@._V1_UY317_CR3,0,214,317_AL_.jpg" class="img-circle img-responsive" alt="" width="100" > 
+															<img src="https://image.tmdb.org/t/p/w342{{credits.cast[1].profile_path}}" class="img-circle img-responsive" alt="" width="100" > 
 														</div>	
 														<div class="col-md-4">
-																<img src="https://images-na.ssl-images-amazon.com/images/M/MV5BZmEzNmExM2ItNzg5Zi00NGRjLWI1NTEtMmQ5MGMwNjFlNWFhL2ltYWdlXkEyXkFqcGdeQXVyMTM0MzI5Nzc@._V1_UX214_CR0,0,214,317_AL_.jpg" class="img-circle img-responsive" alt="" width="100"> 
+																<img src="https://image.tmdb.org/t/p/w342{{credits.cast[2].profile_path}}" class="img-circle img-responsive" alt="" width="100"> 
 															</div>																	
 												</div>
 										</div>
