@@ -12,6 +12,7 @@ import { PeliculasService } from '../peliculas.service';
 export class DetallesPeliculaComponent implements OnInit {
   pelicula: any;
   credits: any;
+  reviews: any;
   
   
   constructor (private http: Http,
@@ -34,6 +35,16 @@ export class DetallesPeliculaComponent implements OnInit {
       this.peliService.getCredits(params['id'])
       .subscribe(
           credits => this.credits = credits, //Bind to view
+           err => {
+               // Log errors if any
+               console.log(err);
+           });
+    });
+
+    this.route.params.subscribe(params => {
+      this.peliService.getReviews(params['id'])
+      .subscribe(
+          reviews => this.reviews = reviews, //Bind to view
            err => {
                // Log errors if any
                console.log(err);

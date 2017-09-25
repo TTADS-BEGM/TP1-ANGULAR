@@ -2,6 +2,16 @@
 * {
   box-sizing: border-box;
 }
+
+.cargando-pelicula {
+  text-align: center;
+}
+
+.cargando-imagen {
+  height: 50px;
+  margin-left: 50%;
+}
+
 .moviecard {
   font-family: 'Helvetica', sans-serif, 'Ariel';
   position: relative;
@@ -90,4 +100,50 @@
 }
 .actors{
   margin-top: 10%;
+}
+
+.opiniones {
+  margin-top: 100px;
+  margin-bottom: 50px;
+
+}
+
+.opiniones h3 {
+  text-align: center;
+  font-size: 30px;
+  color: black;
+  letter-spacing: .5em;
+  margin-bottom: 25px;
+}
+
+.opinion {
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  
+  background: rgba(255,175,75,1);
+  background: -moz-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,114,18,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,175,75,1)), color-stop(100%, rgba(255,114,18,1)));
+  background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,114,18,1) 100%);
+  background: -o-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,114,18,1) 100%);
+  background: -ms-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,114,18,1) 100%);
+  background: linear-gradient(to right, rgba(255,175,75,1) 0%, rgba(255,114,18,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff7212', GradientType=1 );
+
+}
+
+.opinion h4 {
+  font-size: 18px;
+  color: gray;
+  text-align: left;
+  font-weight: bold;
+  transition: text-align 1s ease-in-out;
+}
+
+.opinion span {
+  color: black;
+  font-size: 14px;
 }
