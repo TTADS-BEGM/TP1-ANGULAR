@@ -9,7 +9,10 @@
 
 .cargando-imagen {
   height: 50px;
-  margin-left: 50%;
+  position: relative;
+  left: 50%;
+  margin-left: -25px;
+  margin-bottom: 50px;
 }
 
 .moviecard {
