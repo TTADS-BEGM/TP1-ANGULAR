@@ -1,4 +1,4 @@
-import { Component, OnInit, Input,OnChanges,SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input,OnChanges } from '@angular/core';
 import { PeliculasService } from '../peliculas.service';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -16,7 +16,7 @@ export class CatalogoPeliculasComponent implements OnInit {
   // Constructor with injected service
   constructor(private peliculaService: PeliculasService) {}
 
-  ngOnChanges(changes: SimpleChanges) {
+  ngOnChanges() {
     if(this.filtro == null){
       this.loadPeliculas()
     }else{
