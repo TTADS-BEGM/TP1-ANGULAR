@@ -18,6 +18,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RouterModule }   from '@angular/router';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { PeliculasService } from "./peliculas.service";
+import {RatingModule} from "ngx-rating";
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { PeliculasService } from "./peliculas.service";
     MdCardModule,
     MdInputModule,
     MdListModule,
+    RatingModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
       {

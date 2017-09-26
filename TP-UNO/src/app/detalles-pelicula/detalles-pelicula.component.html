@@ -3,7 +3,16 @@
       <div *ngIf="pelicula != undefined; else elseBlock">
           <div class="moviecard">
               <div id="movie-content">
-                <div class="movie-ratings"><span class="star">★</span><span class="score">{{pelicula.vote_average}}</span><span class="score-out-of">/ 10 (IMdb)</span></div>
+								<div class="movie-ratings"><span class="star">★</span><span class="score">{{pelicula.vote_average}}</span><span class="score-out-of">/ 10</span><span class="score"> | Puntúala </span><span>
+										<rating [(ngModel)]="starsCount"
+										[max]="9"
+										fullIcon="★"
+										emptyIcon="☆"
+										[float]="true"
+										[titles]="['uno', 'dos', 'tres', 'cuatro', 'cinco', 'siete', 'ocho', 'nueve', 'diez']"
+										(ngModelChange)="onChange(starsCount)" >
+										</rating>
+									</span></div>
                 <div class="movie-title">{{pelicula.title}}<span class="movie-year"><fa [name]="'calendar'"></fa> {{pelicula.release_date}}</span></div>
                 <div class="movie-details"><span class="glyphicon glyphicon-time"></span><span class="movie-duration">{{pelicula.runtime}} mins</span><span *ngFor="let genre of pelicula.genres" class="movie-genre">{{genre.name}}</span></div>
 								<div class="row">
@@ -38,7 +47,7 @@
 								</div>
 									
               </div>
-            </div>
+						</div>
           </div>
           <ng-template #elseBlock>
             <div class="col-md-12">
