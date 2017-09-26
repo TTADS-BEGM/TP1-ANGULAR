@@ -33,13 +33,17 @@
           {{ orderby.descOrder }}
         </md-option>
       </md-select>
-            
-
+    
     </div>
-    <div class="col-md-3 text-center">
+    <div class="col-md-1 text-center slider">
+      <md-slide-toggle [(ngModel)]="selectedAdult" color="primary" mdTooltip="ADVERTENCIA: Esta opción es solamente apta para mayores de edad" mdTooltipPosition="above"><b>+18</b></md-slide-toggle>
+    </div>
+
+    <div class="col-md-2 text-center">
 
       <button (click)="clicked($event)" class="btn btn-lg btn-warning hvr-pulse">Buscar</button>
     </div>
+    
 
 
   </div>

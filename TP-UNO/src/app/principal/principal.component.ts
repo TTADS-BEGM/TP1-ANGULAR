@@ -22,7 +22,7 @@ export class PrincipalComponent implements OnInit {
 
     this.filtro='https://api.themoviedb.org/3/discover/movie?api_key=b57c97dcd5c10ae95c73f12d1b5c3373&language=en-US'
     +'&sort_by='+order
-    +'&include_adult=true'
+    +'&include_adult='+$event.adult;
     +'&primary_release_year='+$event.year;
     if($event.genre!=undefined){
       this.filtro+='&with_genres='+$event.genre;

@@ -11,10 +11,11 @@ export class BarraFiltrosComponent implements OnInit {
   selectedGenre: string;
   selectedYear: string;
   selectedOrder: string;
+  selectedAdult: string;
 
   clicked($event){
   $event.target.blur();
-  this.filtrar.emit({year: this.selectedYear,orderby: this.selectedOrder, genre: this.selectedGenre });
+  this.filtrar.emit({year: this.selectedYear,orderby: this.selectedOrder, genre: this.selectedGenre,adult: this.selectedAdult });
   }
     
   genres = [
