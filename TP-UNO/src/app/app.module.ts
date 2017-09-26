@@ -13,7 +13,7 @@ import { LogoComponent } from './logo/logo.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {MdListModule, MdSelectModule, MdCardModule, MdInputModule} from '@angular/material';
+import {MdListModule, MdSelectModule, MdCardModule, MdInputModule, MdSlideToggleModule, MdTooltipModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RouterModule }   from '@angular/router';
 import { SearchbarComponent } from './searchbar/searchbar.component';
@@ -33,7 +33,9 @@ import {RatingModule} from "ngx-rating";
     MdCardModule,
     MdInputModule,
     MdListModule,
+    MdSlideToggleModule,
     RatingModule,
+    MdTooltipModule,
     NgbModule.forRoot(),
     RouterModule.forRoot([
       {

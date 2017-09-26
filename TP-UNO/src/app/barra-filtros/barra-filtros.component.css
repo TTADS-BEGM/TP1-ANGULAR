@@ -8,7 +8,9 @@
     background: linear-gradient(to right, rgba(255,175,75,1) 0%, rgba(255,114,18,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff7212', GradientType=1 );
 }
-
+.slider{
+  padding-top: 15px;
+}
 .btn-warning{
     color: #333;
     border: 4px solid black;
@@ -20,14 +22,6 @@
     padding-bottom: 15px;
 }
 
-.filtros span {
-    font-size: 25px;
-}
-
-.filtros[_ngcontent-c2] {
-        background-color: #ff7212;
-        border-color: orange;
-}
 
 
 .gly {
@@ -36,13 +30,6 @@
     color: black;
 }
 
-.edited-button {
-    background-color: #ff7212;
-    border: 0.5px solid orange;
-}
-.edited-button :hover {
-    background-color: black;
-}
 
 /* Pulse */
 @-webkit-keyframes hvr-pulse {
