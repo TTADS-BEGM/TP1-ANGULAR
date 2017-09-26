@@ -1,5 +1,4 @@
-
-    <div class="row">
+<div class="row">
       <div *ngIf="pelicula != undefined; else elseBlock">
           <div class="moviecard">
               <div id="movie-content">
@@ -18,40 +17,47 @@
 								<div class="row">
 									<div class="col-md-4">
 										<img src="https://image.tmdb.org/t/p/w342{{pelicula.poster_path}}" alt="">
-									</div>
-									<div class="col-md-6 col-md-offset-1">
-										<div class="row">
-
-											<div class="movie-synopsis">
-												<h2>Sinopsis</h2>
-												<p>{{pelicula.overview}}</p>
-											</div>
-											<div class="movie-castcrew"><span class="title">Director: </span><span *ngFor="let crew of credits.crew"><span *ngIf="crew.job == 'Director'">{{crew.name}}</span></span></div>
-											<div class="movie-castcrew"><span class="title">Escritor: </span><span *ngFor="let crew of credits.crew"><span *ngIf="crew.job == 'Novel'">{{crew.name}}</span></span></div>
-											<div class="movie-castcrew"><span class="title">Elenco:</span><span class="name">{{credits.cast[0].name}}, {{credits.cast[1].name}}, {{credits.cast[2].name}}</span></div>										
-										</div>
-										<div class="row">
-												<div class="col-md-offset-1 actors">						
-													<div class="col-md-4">
-														<img src="https://image.tmdb.org/t/p/w342{{credits.cast[0].profile_path}}" class="img-circle img-responsive" alt="" width="100" > 
-													</div>	
-													<div class="col-md-4">
-															<img src="https://image.tmdb.org/t/p/w342{{credits.cast[1].profile_path}}" class="img-circle img-responsive" alt="" width="100" > 
-														</div>	
-														<div class="col-md-4">
-																<img src="https://image.tmdb.org/t/p/w342{{credits.cast[2].profile_path}}" class="img-circle img-responsive" alt="" width="100"> 
-															</div>																	
-												</div>
-										</div>
-									</div>
+                    </div>
+                  <div class="col-md-6 col-md-offset-1">
+                  <div class="row">
+								<div class="movie-synopsis">
+									<h2>Sinopsis</h2>
+									<p>{{pelicula.overview}}</p>
 								</div>
-									
-              </div>
+								<div class="movie-castcrew"><span class="title">Director: </span><span *ngFor="let crew of credits.crew"><span *ngIf="crew.job == 'Director'">{{crew.name}}</span></span></div>
+								<div class="movie-castcrew"><span class="title">Escritor: </span><span *ngFor="let crew of credits.crew"><span *ngIf="crew.department == 'Writing'">{{crew.name}}, </span></span></div>
+								<div class="movie-castcrew"><span class="title">Elenco:</span><span class="name">{{credits.cast[0].name}}, {{credits.cast[1].name}}, {{credits.cast[2].name}}</span></div>										
+							</div>
+							<div class="row">
+									<div class="col-md-offset-1 actors">						
+										<div class="col-md-4">
+											<img src="https://image.tmdb.org/t/p/w342{{credits.cast[0].profile_path}}" class="img-circle img-responsive" alt="" width="100" > 
+										</div>	
+										<div class="col-md-4">
+												<img src="https://image.tmdb.org/t/p/w342{{credits.cast[1].profile_path}}" class="img-circle img-responsive" alt="" width="100" > 
+											</div>	
+											<div class="col-md-4">
+													<img src="https://image.tmdb.org/t/p/w342{{credits.cast[2].profile_path}}" class="img-circle img-responsive" alt="" width="100"> 
+												</div>																	
+
+									</div>
+							</div>
 						</div>
-          </div>
-          <ng-template #elseBlock>
-            <div class="col-md-12">
-              <h3 class="loading-title">Cargando Pelicula...</h3>
-            </div>
-          </ng-template>
-    </div>
+					</div>
+					<div class="opiniones">
+						<h3>
+							OPINIONES
+						</h3>
+							<div class="opinion" *ngFor="let review of reviews.results">
+								<h4>{{review.author}}</h4>
+								<span>{{review.content}}</span>
+							</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<div [hidden]="pelicula">
+			<h3 class="cargando-pelicula">Cargando Pelicula</h3>
+			<img class="cargando-imagen" src="../../assets/cargando.gif" alt="cargando">
+		</div>
+</div>
