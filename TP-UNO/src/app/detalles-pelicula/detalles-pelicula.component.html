@@ -1,17 +1,25 @@
 <div class="row">
-	<div *ngIf="pelicula != undefined; else elseBlock">
-			<div class="moviecard">
-				<div id="movie-content">
-					<div class="movie-ratings"><span class="star">★</span><span class="score">{{pelicula.vote_average}}</span><span class="score-out-of">/ 10 (IMdb)</span></div>
-					<div class="movie-title">{{pelicula.title}}<span class="movie-year"><fa [name]="'calendar'"></fa> {{pelicula.release_date}}</span></div>
-					<div class="movie-details"><span class="glyphicon glyphicon-time"></span><span class="movie-duration">{{pelicula.runtime}} mins</span><span *ngFor="let genre of pelicula.genres" class="movie-genre">{{genre.name}}</span></div>
-					<div class="row">
-						<div class="col-md-4">
-							<img src="https://image.tmdb.org/t/p/w342{{pelicula.poster_path}}" alt="">
-						</div>
-						<div class="col-md-6 col-md-offset-1">
-							<div class="row">
-
+      <div *ngIf="pelicula != undefined; else elseBlock">
+          <div class="moviecard">
+              <div id="movie-content">
+								<div class="movie-ratings"><span class="star">★</span><span class="score">{{pelicula.vote_average}}</span><span class="score-out-of">/ 10</span><span class="score"> | Puntúala </span><span>
+										<rating [(ngModel)]="starsCount"
+										[max]="9"
+										fullIcon="★"
+										emptyIcon="☆"
+										[float]="true"
+										[titles]="['uno', 'dos', 'tres', 'cuatro', 'cinco', 'siete', 'ocho', 'nueve', 'diez']"
+										(ngModelChange)="onChange(starsCount)" >
+										</rating>
+									</span></div>
+                <div class="movie-title">{{pelicula.title}}<span class="movie-year"><fa [name]="'calendar'"></fa> {{pelicula.release_date}}</span></div>
+                <div class="movie-details"><span class="glyphicon glyphicon-time"></span><span class="movie-duration">{{pelicula.runtime}} mins</span><span *ngFor="let genre of pelicula.genres" class="movie-genre">{{genre.name}}</span></div>
+								<div class="row">
+									<div class="col-md-4">
+										<img src="https://image.tmdb.org/t/p/w342{{pelicula.poster_path}}" alt="">
+                    </div>
+                  <div class="col-md-6 col-md-offset-1">
+                  <div class="row">
 								<div class="movie-synopsis">
 									<h2>Sinopsis</h2>
 									<p>{{pelicula.overview}}</p>
@@ -31,6 +39,7 @@
 											<div class="col-md-4">
 													<img src="https://image.tmdb.org/t/p/w342{{credits.cast[2].profile_path}}" class="img-circle img-responsive" alt="" width="100"> 
 												</div>																	
+
 									</div>
 							</div>
 						</div>
@@ -47,10 +56,8 @@
 				</div>
 			</div>
 		</div>
-
 		<div [hidden]="pelicula">
 			<h3 class="cargando-pelicula">Cargando Pelicula</h3>
 			<img class="cargando-imagen" src="../../assets/cargando.gif" alt="cargando">
 		</div>
-
 </div>
