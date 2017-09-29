@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
@@ -10,7 +10,7 @@ import { PeliculasService } from '../peliculas.service';
   templateUrl: './detalles-pelicula.component.html',
   styleUrls: ['./detalles-pelicula.component.css']
 })
-export class DetallesPeliculaComponent implements OnInit {
+export class DetallesPeliculaComponent {
   pelicula: any;
   credits: any;
   result: any;
