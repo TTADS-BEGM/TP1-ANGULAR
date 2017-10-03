@@ -19,6 +19,7 @@ import { RouterModule }   from '@angular/router';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { PeliculasService } from "./peliculas.service";
 import {RatingModule} from "ngx-rating";
+import { TrailervideoComponent } from './trailervideo/trailervideo.component';
 
 @NgModule({
   imports: [
@@ -65,7 +66,8 @@ import {RatingModule} from "ngx-rating";
     CatalogoPeliculasComponent,
     LogoComponent,
     LoginComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    TrailervideoComponent
   ],
   providers: [ PeliculasService ],
   bootstrap: [AppComponent]

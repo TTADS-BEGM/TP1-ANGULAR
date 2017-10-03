@@ -50,8 +50,8 @@
 				</div>
 
 
-				<div *ngIf="havetrailer" class="trailer">
-					<iframe [src]="youtubeurl" width=“100%”allowfullscreen></iframe>
+				<div *ngIf="youtubeurl" class="trailer">
+					<app-trailervideo [youtubeurl]="youtubeurl"></app-trailervideo>
 				</div>
 
 

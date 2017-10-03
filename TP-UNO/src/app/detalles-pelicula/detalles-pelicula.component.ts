@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
@@ -17,14 +17,13 @@ export class DetallesPeliculaComponent {
   session: any;
   reviews: any;
   trailer: any;
-  youtubeurl : any;
-  havetrailer  = false;;
+  youtubeurl:any;
   
-  constructor (private http: Http,
-    private route: ActivatedRoute,
-    private peliService : PeliculasService,
-  private sanitizer: DomSanitizer) {}
-   
+  constructor ( private http: Http,
+                private route: ActivatedRoute,
+                private peliService : PeliculasService,
+                private sanitizer: DomSanitizer) {}
+            
     onChange(starsCount) {
       this.route.params.subscribe(params => {
         this.peliService.rateMovie(params['id'], starsCount, this.session.guest_session_id)
@@ -92,11 +91,10 @@ export class DetallesPeliculaComponent {
 
   }
 
-  ngAfterContentChecked() {
+  ngDoCheck() {
 
-      if(!this.havetrailer){
-        this.youtubeurl = this.sanitizeAndEmbedURLs(this.trailer.results[0].key);
-        this.havetrailer=true;
+      if(this.trailer){
+        this.youtubeurl = this.sanitizeAndEmbedURLs(this.trailer.results[0].key);        
       }
     
   }
