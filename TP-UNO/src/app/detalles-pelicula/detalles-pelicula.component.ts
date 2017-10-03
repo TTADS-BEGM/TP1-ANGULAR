@@ -3,7 +3,7 @@ import {Observable} from 'rxjs/Rx';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 import { PeliculasService } from '../peliculas.service';
-
+import {BrowserModule, DomSanitizer} from '@angular/platform-browser'
 
 @Component({
   selector: 'app-detalles-pelicula',
@@ -16,11 +16,14 @@ export class DetallesPeliculaComponent {
   result: any;
   session: any;
   reviews: any;
-  
+  trailer: any;
+  youtubeurl : any;
+  havetrailer  = false;;
   
   constructor (private http: Http,
     private route: ActivatedRoute,
-    private peliService : PeliculasService) {}
+    private peliService : PeliculasService,
+  private sanitizer: DomSanitizer) {}
    
     onChange(starsCount) {
       this.route.params.subscribe(params => {
@@ -35,7 +38,6 @@ export class DetallesPeliculaComponent {
     }
 
   ngOnInit() {
-
     this.route.params.subscribe(params => {
       this.peliService.getPeli(params['id'])
       .subscribe(
@@ -73,7 +75,39 @@ export class DetallesPeliculaComponent {
            });
     });
 
+       this.route.params.subscribe(params => {
+      this.peliService.getTrailer(params['id'])
+      .subscribe(
+          trailer => this.trailer = trailer, //Bind to view
+           err => {
+               // Log errors if any
+               console.log(err);
+           });
+    });
+    
+    
+    
+    
+
+
   }
+
+  ngAfterContentChecked() {
+
+      if(!this.havetrailer){
+        this.youtubeurl = this.sanitizeAndEmbedURLs(this.trailer.results[0].key);
+        this.havetrailer=true;
+      }
+    
+  }
+  private sanitizeAndEmbedURLs (id) {
+    let link;    
+    if (id !== null) {
+    link = 'https://www.youtube.com/embed/' +id;
+    }
+    link = this.sanitizer.bypassSecurityTrustResourceUrl(link);
+    return link;
+    }
       
 
 }

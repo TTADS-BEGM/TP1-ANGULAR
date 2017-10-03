@@ -21,7 +21,8 @@ export class PeliculasService {
      private ratingUrl = 'https://api.themoviedb.org/3/movie/{movie_id}/rating?api_key=b57c97dcd5c10ae95c73f12d1b5c3373&guest_session_id={id_session}';
      private sessionUrl = 'https://api.themoviedb.org/3/authentication/guest_session/new?api_key=b57c97dcd5c10ae95c73f12d1b5c3373';
      private reviewsUrl = ' https://api.themoviedb.org/3/movie/{movie_id}/reviews?api_key=b57c97dcd5c10ae95c73f12d1b5c3373&language=en-US&page=1';
-     
+     private trailerUrl = 'https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=b57c97dcd5c10ae95c73f12d1b5c3373&language=en-US';
+
      // Fetch all existing movies
      getFiltradas(page,url) : Observable<any> {
          
@@ -82,6 +83,15 @@ export class PeliculasService {
     getReviews(id: any) : Observable<any> {
         // ...using get request
         return this.http.get(this.reviewsUrl.replace('{movie_id}', id))
+                        // ...and calling .json() on the response to return data
+                        .map((res:Response) => res.json()) 
+                        //...errors if any
+                        .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    getTrailer(id: any) : Observable<any> {
+        // ...using get request
+        return this.http.get(this.trailerUrl.replace('{movie_id}', id))
                         // ...and calling .json() on the response to return data
                         .map((res:Response) => res.json()) 
                         //...errors if any
